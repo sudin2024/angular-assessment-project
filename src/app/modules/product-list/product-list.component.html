@@ -1,0 +1,23 @@
+<p-button class="p-button-success add-product-button" (click)="goToDetais('add')">Add Product</p-button>
+<p-table [value]="products">
+  <ng-template pTemplate="header">
+      <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Similar Product</th>
+          <th>Action</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-item>
+      <tr>
+          <td>{{ item.productName }}</td>
+          <td>{{ item.productCategory?.name }}</td>
+          <td><span *ngFor="let product of item.similarProduct; let last = last;">{{ product.title }}<span *ngIf="!last">, </span></span></td>
+          <td>
+            <span style="margin-right: 10px;"><p-button size="small" (click)="goToDetais('edit', item.id)">Edit</p-button></span>
+            <span><p-button size="small" (click)="deleteProduct(item.id)">Delete</p-button></span>
+          </td>
+      </tr>
+  </ng-template>
+</p-table>
+

@@ -1,0 +1,20 @@
+.product-form {
+  width: 500px;
+  .form-group {
+    label {
+      width: 100%;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+:host ::ng-deep {
+  .form-group {
+    input,.p-dropdown,.p-autocomplete,.p-autocomplete-multiple-container {
+      width: 100%;
+    }
+    ul {
+      padding-left: 10px;
+    }
+  }
+}
